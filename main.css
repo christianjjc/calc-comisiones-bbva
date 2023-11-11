@@ -140,3 +140,18 @@ option {
 .control-oculto {
     display: none;
 }
+
+
+@media (max-width: 576px) {
+    .contenedor {
+        width: 100%;
+        margin-right: auto;
+        margin-left: auto;
+        padding: 20px 30px;
+    }
+
+    .calc-content {
+        max-width: 100%;
+        margin: auto;
+    }
+}
