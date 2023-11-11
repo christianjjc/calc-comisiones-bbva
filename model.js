@@ -1,12 +1,3 @@
-const montosBase = {
-  tasa: 0.0,
-  comisionOpenpay: 0.0,
-  subComision: 0.0,
-  subCob: 0.0,
-  comisionTotal: 0.0,
-  recibiras: 0.0,
-};
-
 const tasasYComisiones = {
   pasarela_pago: {
     nombre: "Pasarela de Pago",

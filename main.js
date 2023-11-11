@@ -35,6 +35,7 @@ function cargarControles(level, cmbAusar, divArray, inicioArray, divMostrar, cmb
   const cmb = document.getElementById(cmbAusar);
   cmb.addEventListener("change", () => {
     const valor = cmb.value;
+    // Los niveles son los del array
     if (level == 1) {
       Global_Producto = valor;
     } else if (level == 2) {
@@ -52,6 +53,7 @@ function cargarControles(level, cmbAusar, divArray, inicioArray, divMostrar, cmb
       default:
         showHideControl(true, divMostrar);
         if (primeaOpcion.length > 0) {
+          // Los niveles son los del array
           if (level == 1) {
             llenaCombo(tasasYComisiones[`${valor}`], cmbcargar, primeaOpcion);
           } else if (level == 2) {
@@ -69,3 +71,26 @@ llenaCombo(tasasYComisiones, "cmbproductos", "¿Qué producto necesitas?");
 cargarControles(1, "cmbproductos", "divopciones", 1, "bancos", "cmbbancos", "¿Eres cliente?");
 cargarControles(2, "cmbbancos", "divopciones", 2, "metodospago", "cmbmetodospago", "Método de pago");
 cargarControles(3, "cmbmetodospago", "divopciones", 3, "monto_pagar", "", "");
+
+function calcularMontoRecibir() {
+  const montoIngresado = document.getElementById("txtmontopagar").value;
+  const comisionOP = tasasYComisiones[`${Global_Producto}`][`${Global_Cliente}`][`${Global_Metodo_Pago}`].comisionOP;
+  const igvComision = tasasYComisiones[`${Global_Producto}`][`${Global_Cliente}`][`${Global_Metodo_Pago}`].igvComision;
+  const tasa = tasasYComisiones[`${Global_Producto}`][`${Global_Cliente}`][`${Global_Metodo_Pago}`].tasa;
+
+  let comisionOpenPay = montoIngresado * (comisionOP / 100);
+  let subComision = comisionOpenPay + tasa;
+  let subCob = subComision * (igvComision / 100);
+  let comisionTotal = subComision + subCob;
+  let recibiras = montoIngresado - comisionTotal;
+  return recibiras;
+}
+
+const lblresultado = document.getElementById("lblMontoRecibir");
+const txtmontopagar = document.getElementById("txtmontopagar");
+txtmontopagar.addEventListener("keypress", (event) => {
+  if (event.key === "Enter") {
+    lblresultado.textContent = calcularMontoRecibir();
+    event.preventDefault();
+  }
+});
