@@ -2,7 +2,7 @@ let Global_Producto = "";
 let Global_Cliente = "";
 let Global_Metodo_Pago = "";
 
-function cargarCombo(objeto, combo, primeaOpcion) {
+function llenaCombo(objeto, combo, primeaOpcion) {
   const cmb = document.getElementById(combo);
   cmb.innerHTML = "";
   const opt = document.createElement("option");
@@ -22,7 +22,7 @@ function cargarCombo(objeto, combo, primeaOpcion) {
   }
 }
 
-function showHide(mostrar, idNodo) {
+function showHideControl(mostrar, idNodo) {
   const nodo = document.getElementById(idNodo);
   if (mostrar) {
     nodo.classList.remove("control-oculto");
@@ -46,18 +46,18 @@ function cargarControles(level, cmbAusar, divArray, inicioArray, divMostrar, cmb
       case "0":
         const combos = document.getElementsByClassName(divArray);
         for (let i = inicioArray; i < combos.length; i++) {
-          showHide(false, combos[i].id);
+          showHideControl(false, combos[i].id);
         }
         break;
       default:
-        showHide(true, divMostrar);
+        showHideControl(true, divMostrar);
         if (primeaOpcion.length > 0) {
           if (level == 1) {
-            cargarCombo(tasasYComisiones[`${valor}`], cmbcargar, primeaOpcion);
+            llenaCombo(tasasYComisiones[`${valor}`], cmbcargar, primeaOpcion);
           } else if (level == 2) {
-            cargarCombo(tasasYComisiones[`${Global_Producto}`][`${valor}`], cmbcargar, primeaOpcion);
+            llenaCombo(tasasYComisiones[`${Global_Producto}`][`${valor}`], cmbcargar, primeaOpcion);
           } else if (level == 3) {
-            cargarCombo(tasasYComisiones[`${Global_Producto}`][`${Global_Cliente}`][`${valor}`], cmbcargar, primeaOpcion);
+            llenaCombo(tasasYComisiones[`${Global_Producto}`][`${Global_Cliente}`][`${valor}`], cmbcargar, primeaOpcion);
           }
         }
         break;
@@ -65,7 +65,7 @@ function cargarControles(level, cmbAusar, divArray, inicioArray, divMostrar, cmb
   });
 }
 
-cargarCombo(tasasYComisiones, "cmbproductos", "¿Qué producto necesitas?");
+llenaCombo(tasasYComisiones, "cmbproductos", "¿Qué producto necesitas?");
 cargarControles(1, "cmbproductos", "divopciones", 1, "bancos", "cmbbancos", "¿Eres cliente?");
 cargarControles(2, "cmbbancos", "divopciones", 2, "metodospago", "cmbmetodospago", "Método de pago");
 cargarControles(3, "cmbmetodospago", "divopciones", 3, "monto_pagar", "", "");
