@@ -25,7 +25,7 @@ const tasasYComisiones = {
     otros_bancos: {
       nombre: "Otros Bancos",
       tarjetas_credito: { nombre: "Tarjetas de Crédito y Débito Locales", tasa: 1, comisionOP: 3.79, igvComision: 18 },
-      tarjetas_foraneas: { tasa: 1, comisionOP: 4.45, igvComision: 18 },
+      tarjetas_foraneas: { nombre: "Tarjetas del Extranjero", tasa: 1, comisionOP: 4.45, igvComision: 18 },
       pagos_alternativos: { nombre: "Pagos con Efectivo", tasa: 0, comisionOP: 3.79, igvComision: 18 },
     },
   },
