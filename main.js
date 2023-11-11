@@ -1,3 +1,27 @@
+let Global_Producto = "";
+let Global_Cliente = "";
+let Global_Metodo_Pago = "";
+
+function cargarCombo(objeto, combo, primeaOpcion) {
+  const cmb = document.getElementById(combo);
+  cmb.innerHTML = "";
+  const opt = document.createElement("option");
+  opt.value = "0";
+  opt.textContent = primeaOpcion;
+  cmb.appendChild(opt);
+  const productosArray = Object.keys(objeto);
+  for (let i = 0; i < productosArray.length; i++) {
+    const opt = document.createElement("option");
+    const cmbValue = productosArray[i];
+    if (cmbValue.toLowerCase() == "nombre") {
+    } else {
+      opt.value = cmbValue;
+      opt.textContent = objeto[`${productosArray[i]}`].nombre;
+      cmb.appendChild(opt);
+    }
+  }
+}
+
 function showHide(mostrar, idNodo) {
   const nodo = document.getElementById(idNodo);
   if (mostrar) {
@@ -7,10 +31,17 @@ function showHide(mostrar, idNodo) {
   }
 }
 
-function cargarControles(cmbAusar, divArray, inicioArray, divMostrar) {
+function cargarControles(level, cmbAusar, divArray, inicioArray, divMostrar, cmbcargar, primeaOpcion) {
   const cmb = document.getElementById(cmbAusar);
   cmb.addEventListener("change", () => {
     const valor = cmb.value;
+    if (level == 1) {
+      Global_Producto = valor;
+    } else if (level == 2) {
+      Global_Cliente = valor;
+    } else if (level == 3) {
+      Global_Metodo_Pago = valor;
+    }
     switch (valor) {
       case "0":
         const combos = document.getElementsByClassName(divArray);
@@ -20,11 +51,21 @@ function cargarControles(cmbAusar, divArray, inicioArray, divMostrar) {
         break;
       default:
         showHide(true, divMostrar);
+        if (primeaOpcion.length > 0) {
+          if (level == 1) {
+            cargarCombo(tasasYComisiones[`${valor}`], cmbcargar, primeaOpcion);
+          } else if (level == 2) {
+            cargarCombo(tasasYComisiones[`${Global_Producto}`][`${valor}`], cmbcargar, primeaOpcion);
+          } else if (level == 3) {
+            cargarCombo(tasasYComisiones[`${Global_Producto}`][`${Global_Cliente}`][`${valor}`], cmbcargar, primeaOpcion);
+          }
+        }
         break;
     }
   });
 }
 
-cargarControles("cmbproductos", "divopciones", 1, "bancos");
-cargarControles("cmbbancos", "divopciones", 2, "metodospago");
-cargarControles("cmbmetodospago", "divopciones", 3, "monto_pagar");
+cargarCombo(tasasYComisiones, "cmbproductos", "¿Qué producto necesitas?");
+cargarControles(1, "cmbproductos", "divopciones", 1, "bancos", "cmbbancos", "¿Eres cliente?");
+cargarControles(2, "cmbbancos", "divopciones", 2, "metodospago", "cmbmetodospago", "Método de pago");
+cargarControles(3, "cmbmetodospago", "divopciones", 3, "monto_pagar", "", "");
