@@ -67,11 +67,6 @@ function cargarControles(level, cmbAusar, divArray, inicioArray, divMostrar, cmb
   });
 }
 
-llenaCombo(tasasYComisiones, "cmbproductos", "¿Qué producto necesitas?");
-cargarControles(1, "cmbproductos", "divopciones", 1, "bancos", "cmbbancos", "¿Eres cliente?");
-cargarControles(2, "cmbbancos", "divopciones", 2, "metodospago", "cmbmetodospago", "Método de pago");
-cargarControles(3, "cmbmetodospago", "divopciones", 3, "monto_pagar", "", "");
-
 function calcularMontoRecibir() {
   const montoIngresado = document.getElementById("txtmontopagar").value;
   const comisionOP = tasasYComisiones[`${Global_Producto}`][`${Global_Cliente}`][`${Global_Metodo_Pago}`].comisionOP;
@@ -94,3 +89,8 @@ txtmontopagar.addEventListener("keypress", (event) => {
     event.preventDefault();
   }
 });
+
+llenaCombo(tasasYComisiones, "cmbproductos", "¿Qué producto necesitas?");
+cargarControles(1, "cmbproductos", "divopciones", 1, "bancos", "cmbbancos", "¿Eres cliente?");
+cargarControles(2, "cmbbancos", "divopciones", 2, "metodospago", "cmbmetodospago", "Método de pago");
+cargarControles(3, "cmbmetodospago", "divopciones", 3, "monto_pagar", "", "");
