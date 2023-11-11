@@ -47,5 +47,4 @@ const tasasYComisiones = {
   },
 };
 
-window.montosBase = montosBase;
 window.tasasYComisiones = tasasYComisiones;
