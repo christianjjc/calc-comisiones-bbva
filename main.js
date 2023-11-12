@@ -81,11 +81,11 @@ function calcularMontoRecibir() {
   return recibiras;
 }
 
-const lblresultado = document.getElementById("lblMontoRecibir");
+const lblMontoRecibir = document.getElementById("lblMontoRecibir");
 const txtmontopagar = document.getElementById("txtmontopagar");
 txtmontopagar.addEventListener("keypress", (event) => {
   if (event.key === "Enter") {
-    lblresultado.textContent = calcularMontoRecibir();
+    lblMontoRecibir.textContent = calcularMontoRecibir();
     event.preventDefault();
   }
 });
