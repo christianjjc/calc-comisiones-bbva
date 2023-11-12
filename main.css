@@ -7,3 +7,151 @@ html {
 *:after {
     box-sizing: inherit;
 }
+
+body {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    text-align: center;
+    color: #2c3e50;
+}
+
+.contenedor {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 20px 30px;
+}
+
+.calc-content {
+    max-width: 62%;
+    margin: auto;
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+}
+
+.divopciones {
+    width: 100%;
+    height: 50px;
+    background: transparent;
+    text-align: left;
+    display: grid;
+    margin-bottom: 10%;
+}
+
+.cmbopciones {
+    height: 60px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #666;
+    cursor: pointer;
+    font-size: 16px;
+    outline: none;
+    font-weight: 400;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #666;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-position-x: right;
+    background-position-y: center;
+    text-align: left;
+}
+
+option:not(:checked) {
+    background-color: #fff;
+    color: #666;
+    height: 30px;
+}
+
+option {
+    width: 90%;
+    font-size: 16px;
+    height: 46%;
+    cursor: pointer;
+    -webkit-appearance: auto;
+    -moz-appearance: auto;
+    appearance: auto;
+}
+
+.cobrar {
+    text-align: left;
+}
+
+#txtmontopagar {
+    width: 100%;
+    height: 50px;
+    background-color: transparent;
+    text-align: right;
+    display: flex;
+    margin-bottom: 10%;
+    -webkit-box-align: center;
+    align-items: center;
+    font-size: 16px;
+    border: none;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.datos-iva,
+.datos-monto {
+    width: 100%;
+    -webkit-box-align: center;
+}
+
+.datos-monto {
+    color: #666;
+}
+
+.cuenta {
+    background-color: #e7f9f8;
+    font-size: 16px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.13;
+    letter-spacing: normal;
+    display: flex;
+    justify-content: space-around;
+    -webkit-box-align: center;
+    align-items: center;
+    height: 56px;
+    border-radius: 12px;
+}
+
+.cuenta label {
+    margin: 2%;
+    font-weight: 700;
+    text-align: center;
+    color: #121212;
+    font-size: 16px;
+    outline: none;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+}
+
+.control-oculto {
+    display: none;
+}
+
+
+@media (max-width: 576px) {
+    .contenedor {
+        width: 100%;
+        margin-right: auto;
+        margin-left: auto;
+        padding: 20px 30px;
+    }
+
+    .calc-content {
+        max-width: 100%;
+        margin: auto;
+    }
+}
