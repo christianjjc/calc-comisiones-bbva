@@ -4,9 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/main.css">
-    <script defer src="/main.js"></script>
+    <title>Calculadora de Comisiones | BBVA</title>
+    <link rel="stylesheet" href="./main.css">
+    <script defer src="./model.js"></script>
+    <script defer src="./main.js"></script>
 </head>
 
 <body>
@@ -15,7 +16,32 @@
     </header>
     <main>
         <section id="calculadora">
-
+            <div class="contenedor">
+                <div class="calc-content">
+                    <div id="productos" class="divopciones">
+                        <select name="cmbproductos" id="cmbproductos" class="cmbopciones">
+                        </select>
+                    </div>
+                    <div id="bancos" class="divopciones control-oculto ">
+                        <select name="cmbbancos" id="cmbbancos" class="cmbopciones">
+                        </select>
+                    </div>
+                    <div id="metodospago" class="divopciones control-oculto ">
+                        <select name="cmbmetodospago" id="cmbmetodospago" class="cmbopciones">
+                        </select>
+                    </div>
+                    <div id="monto_pagar" class="cobrar divopciones control-oculto ">
+                        <input type="number" id="txtmontopagar" name="txtmontopagar" min="0" max="1000000000"
+                            pattern="^[0-9]+" placeholder="Monto a pagar S">
+                    </div>
+                    <div class="datos-monto"><!---->
+                        <div class="cuenta">
+                            <label for="" inner-html.prop="Recibirás en tu cuenta">Recibirás en tu cuenta</label>
+                            <label id="lblMontoRecibir" for=""> S/0</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
     <footer>
