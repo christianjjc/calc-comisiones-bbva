@@ -16,7 +16,7 @@ function llenaCombo(objeto, combo, primeaOpcion) {
     if (cmbValue.toLowerCase() == "nombre") {
     } else {
       opt.value = cmbValue;
-      opt.textContent = objeto[`${productosArray[i]}`].nombre;
+      opt.textContent = objeto[productosArray[i]].nombre;
       cmb.appendChild(opt);
     }
   }
