@@ -55,11 +55,11 @@ function cargarControles(level, cmbAusar, divArray, inicioArray, divMostrar, cmb
         if (primeaOpcion.length > 0) {
           // Los niveles son los del array
           if (level == 1) {
-            llenaCombo(tasasYComisiones[`${valor}`], cmbcargar, primeaOpcion);
+            llenaCombo(tasasYComisiones[valor], cmbcargar, primeaOpcion);
           } else if (level == 2) {
-            llenaCombo(tasasYComisiones[`${Global_Producto}`][`${valor}`], cmbcargar, primeaOpcion);
+            llenaCombo(tasasYComisiones[Global_Producto][valor], cmbcargar, primeaOpcion);
           } else if (level == 3) {
-            llenaCombo(tasasYComisiones[`${Global_Producto}`][`${Global_Cliente}`][`${valor}`], cmbcargar, primeaOpcion);
+            llenaCombo(tasasYComisiones[Global_Producto][Global_Cliente][valor], cmbcargar, primeaOpcion);
           }
         }
         break;
@@ -69,9 +69,9 @@ function cargarControles(level, cmbAusar, divArray, inicioArray, divMostrar, cmb
 
 function calcularMontoRecibir() {
   const montoIngresado = document.getElementById("txtmontopagar").value;
-  const comisionOP = tasasYComisiones[`${Global_Producto}`][`${Global_Cliente}`][`${Global_Metodo_Pago}`].comisionOP;
-  const igvComision = tasasYComisiones[`${Global_Producto}`][`${Global_Cliente}`][`${Global_Metodo_Pago}`].igvComision;
-  const tasa = tasasYComisiones[`${Global_Producto}`][`${Global_Cliente}`][`${Global_Metodo_Pago}`].tasa;
+  const comisionOP = tasasYComisiones[Global_Producto][Global_Cliente][Global_Metodo_Pago].comisionOP;
+  const igvComision = tasasYComisiones[Global_Producto][Global_Cliente][Global_Metodo_Pago].igvComision;
+  const tasa = tasasYComisiones[Global_Producto][Global_Cliente][Global_Metodo_Pago].tasa;
 
   let comisionOpenPay = montoIngresado * (comisionOP / 100);
   let subComision = comisionOpenPay + tasa;
