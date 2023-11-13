@@ -41,7 +41,7 @@ body {
     margin-bottom: 10%;
 }
 
-.cmbopciones {
+.controlopciones:not(label) {
     height: 60px;
     background-color: transparent;
     border: none;
@@ -78,8 +78,9 @@ option {
     appearance: auto;
 }
 
-.cobrar {
+.cobrar input::placeholder {
     text-align: left;
+    display: block;
 }
 
 #txtmontopagar {
@@ -154,4 +155,33 @@ option {
         max-width: 100%;
         margin: auto;
     }
+
+    .controlopciones:not(label) {
+        font-size: 13px;
+    }
+
+    .cuenta label {
+        font-size: 13px;
+    }
+
+    option {
+        font-size: 13px;
+    }
+
+    #txtmontopagar {
+        font-size: 13px;
+    }
+
 }
+
+@media only screen and (min-width: 992px) {
+    .contenedor {
+        width: 50%;
+    }
+}
+
+/* @media (max-width: 768px) {
+    .contenedor {
+        max-width: 90%;
+    }
+} */
