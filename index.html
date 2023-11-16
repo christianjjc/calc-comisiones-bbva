@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora de Comisiones | BBVA</title>
     <link rel="stylesheet" href="./main.css">
-    <script defer src="./model.js"></script>
     <script defer src="./main.js"></script>
 </head>
 
@@ -19,25 +18,24 @@
             <div class="contenedor">
                 <div class="calc-content">
                     <div id="productos" class="divopciones">
-                        <select name="cmbproductos" id="cmbproductos" class="cmbopciones">
+                        <select name="cmbproductos" id="cmbproductos" class="controlopciones">
                         </select>
                     </div>
                     <div id="bancos" class="divopciones control-oculto ">
-                        <select name="cmbbancos" id="cmbbancos" class="cmbopciones">
+                        <select name="cmbbancos" id="cmbbancos" class="controlopciones">
                         </select>
                     </div>
                     <div id="metodospago" class="divopciones control-oculto ">
-                        <select name="cmbmetodospago" id="cmbmetodospago" class="cmbopciones">
+                        <select name="cmbmetodospago" id="cmbmetodospago" class="controlopciones">
                         </select>
                     </div>
                     <div id="monto_pagar" class="cobrar divopciones control-oculto ">
-                        <input type="number" id="txtmontopagar" name="txtmontopagar" min="0" max="1000000000"
-                            pattern="^[0-9]+" placeholder="Monto a pagar S">
+                        <input type="text" id="txtmontopagar" placeholder="Monto a pagar S" class="controlopciones" />
                     </div>
-                    <div class="datos-monto"><!---->
+                    <div class="datos-monto">
                         <div class="cuenta">
                             <label for="" inner-html.prop="Recibirás en tu cuenta">Recibirás en tu cuenta</label>
-                            <label id="lblMontoRecibir" for=""> S/0</label>
+                            <label id="lblMontoRecibir" for="" class="controlopciones">S/&nbsp;0</label>
                         </div>
                     </div>
                 </div>
@@ -45,9 +43,7 @@
         </section>
     </main>
     <footer>
-
     </footer>
-
 </body>
 
 </html>
